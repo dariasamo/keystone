@@ -23,7 +23,8 @@ var Visualization = React.createClass({
 		return (
 			<Container data-screen-id="home">
 				<div className="dashboard-header">
-					<div className="dashboard-heading">{Keystone.brand}</div>
+					<div className="dashboard-heading">Lists</div>
+					<p>Here you can see all lists available in your project and their respective fields</p>
 				</div>
 				<div className="dashboard-groups">
 					{(this.props.error) && (
