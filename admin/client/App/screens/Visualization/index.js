@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Spinner } from 'elemental';
 import { connect } from 'react-redux';
-import { ListDiagram } from './components/ListDiagram';
+import ListDiagram from './components/ListDiagram';
 import lists from '../../../utils/lists.js';
 
 var Visualization = React.createClass({

@@ -10,4 +10,4 @@ const ListDiagram = ({ list }) => (
     </div>
   )
 
-export default ListDiagram
+module.exports = ListDiagram;
