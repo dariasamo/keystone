@@ -1,4 +1,5 @@
 import React from 'react';
+import ListModal from './ListModal';
 import { Glyph, Row, Card } from 'elemental';
 
 const ListDiagram = ({ list }) => (
@@ -9,7 +10,10 @@ const ListDiagram = ({ list }) => (
         </div>
       </Row>
       <Row>
-        {Object.values(list.fields).map(field => <Card>{field.label}</Card>
+        {Object.values(list.fields).map(field =>
+          <Card>
+            <a href="#" onClick={this.toggleModal}>{field.label}</a>
+          </Card>
           )}
       </Row>
     </div>
