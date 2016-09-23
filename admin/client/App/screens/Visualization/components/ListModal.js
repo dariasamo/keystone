@@ -3,7 +3,7 @@ import { Modal } from 'elemental';
 
 const ListModal = (
   <Modal
-    isOpen={this.props.modalIsOpen}
+    isOpen={this.state.modalIsOpen}
     onCancel={this.toggleModal}
     backdropClosesModal
   >
