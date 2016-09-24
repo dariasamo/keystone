@@ -12,7 +12,7 @@ const ListDiagram = ({ list }) => (
       <Row>
         {Object.values(list.fields).map(field =>
           <Card>
-            <a href="#" onClick={this.toggleModal}>{field.label}</a>
+            <ListModal label={field.label} />
           </Card>
           )}
       </Row>
