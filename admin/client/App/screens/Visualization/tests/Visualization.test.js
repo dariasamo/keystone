@@ -14,19 +14,19 @@ describe('<Visualization />', () => {
 			},
 			orphanedLists: [],
 			lists: {
-        listsByKey: {
-          Post: {
-            key: 'post'
-          }
-        }
-      },
+				listsByKey: {
+					Post: {
+						key: 'post',
+					},
+				},
+			},
 		};
 	});
 
 	it('should render a flat nav if specified', () => {
 		const component = shallow(<Visualization />);
-    demand(component.find(ListDiagram).length).eql(1);
-    // demand(component.find(ListDiagram).at(0).prop('lists')).eql(orphanedLists);
+		demand(component.find(ListDiagram).length).eql(1);
+		// demand(component.find(ListDiagram).at(0).prop('lists')).eql(orphanedLists);
 	});
 
 });

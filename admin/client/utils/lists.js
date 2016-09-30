@@ -5,24 +5,14 @@
 
 import List from './List';
 
-const assingLists = function() {
-	exports.listsByKey = {};
-	exports.listsByPath = {};
+exports.listsByKey = {};
+exports.listsByPath = {};
 
-	for (const key in global.Keystone.lists) {
-		// Guard for-ins
-		if ({}.hasOwnProperty.call(global.Keystone.lists, key)) {
-			var list = new List(global.Keystone.lists[key]);
-			exports.listsByKey[key] = list;
-			exports.listsByPath[list.path] = list;
-		}
+for (const key in Keystone.lists) {
+	// Guard for-ins
+	if ({}.hasOwnProperty.call(Keystone.lists, key)) {
+		var list = new List(Keystone.lists[key]);
+		exports.listsByKey[key] = list;
+		exports.listsByPath[list.path] = list;
 	}
-
-	return exports.listsByKey;
 }
-
-if (global.Keystone) {
-	assignLists();
-}
-
-export default assingLists;

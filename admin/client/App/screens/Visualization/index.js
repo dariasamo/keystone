@@ -1,26 +1,18 @@
 import React from 'react';
-import { Container, Spinner } from 'elemental';
+import { Container } from 'elemental';
 import { connect } from 'react-redux';
+
+import AlertMessages from '../../shared/AlertMessages';
 import ListDiagram from './components/ListDiagram';
-import assignLists from '../../../utils/lists.js';
+import lists from '../../../utils/lists.js';
 
 var Visualization = React.createClass({
 	displayName: 'Visualization',
 	componentDidMount () {
 	},
-	getSpinner () {
-		if (this.props.counts && Object.keys(this.props.counts).length === 0
-			&& (this.props.error || this.props.loading)) {
-			return (
-				<Spinner />
-			);
-		}
-		return null;
-	},
 	render () {
-		console.log(assignLists());
-		const spinner = this.getSpinner();
-    const listObject = Object.values(assignLists());
+		const listObject = Object.values(lists.listsByKey);
+		console.log(listObject);
 		return (
 			<Container data-screen-id="home">
 				<div className="dashboard-header">
@@ -35,18 +27,10 @@ var Visualization = React.createClass({
 							} }}
 						/>
 					)}
-					{/* Render flat nav */}
-					{Keystone.nav.flat ? (
-						<Lists
-							counts={this.props.counts}
-							lists={Keystone.lists}
-							spinner={spinner}
-						/>
-					) : (
-            <div>
-              {listObject.map(list => <ListDiagram list={list} />)}
-            </div>
-					)}
+					{/* Render diagram */}
+					<div>
+						{listObject.map(list => <ListDiagram key={list.path} list={list} />)}
+					</div>
 				</div>
 			</Container>
 		);
