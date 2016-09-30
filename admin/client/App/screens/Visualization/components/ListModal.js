@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ModalHeader, ModalBody } from 'elemental';
+import { Modal, ModalHeader, ModalBody, Table } from 'elemental';
 
 var ListModal = React.createClass({
 	propTypes: {
@@ -32,13 +32,22 @@ var ListModal = React.createClass({
 						onClose={this.toggleModal}
 					/>
 					<ModalBody>
-						<ul>
-							{keys.map(function (option, i) {
-								return (
-									<li key={option}>{option} {values[i].toString()}</li>
-								);
-							})}
-						</ul>
+						<Table className="field-options">
+							<colgroup>
+								<col width="40%" />
+								<col width="40%" />
+							</colgroup>
+							<tbody>
+								{keys.map(function (option, i) {
+									return (
+										<tr key={option}>
+											<td>{option}</td>
+											<td>{values[i].toString()}</td>
+										</tr>
+									);
+								})}
+							</tbody>
+						</Table>
 					</ModalBody>
 				</Modal>
 			</span>
