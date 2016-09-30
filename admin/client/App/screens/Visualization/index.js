@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Spinner } from 'elemental';
 import { connect } from 'react-redux';
 import ListDiagram from './components/ListDiagram';
-import lists from '../../../utils/lists.js';
+import assignLists from '../../../utils/lists.js';
 
 var Visualization = React.createClass({
 	displayName: 'Visualization',
@@ -18,8 +18,9 @@ var Visualization = React.createClass({
 		return null;
 	},
 	render () {
+		console.log(assignLists());
 		const spinner = this.getSpinner();
-    const listObject = Object.values(lists.listsByKey);
+    const listObject = Object.values(assignLists());
 		return (
 			<Container data-screen-id="home">
 				<div className="dashboard-header">

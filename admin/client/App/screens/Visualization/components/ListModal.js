@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'elemental';
+import { Modal, ModalHeader, ModalBody } from 'elemental';
 
 var ListModal = React.createClass({
 	propTypes: {
@@ -14,6 +14,8 @@ var ListModal = React.createClass({
   },
 	render () {
     const { label } = this.props;
+    const { keys } = this.props;
+    const { values } = this.props;
 
 		return (
       <span>
@@ -29,11 +31,14 @@ var ListModal = React.createClass({
             onClose={this.toggleModal}
           />
           <ModalBody>
+            <ul>
+              {keys.map(function(option,i) {
+                return (
+                  <li>{option} {values[i].toString()}</li>
+                )}
+              )}
+            </ul>
           </ModalBody>
-          <ModalFooter>
-            <Button type="primary" onClick={this.toggleModal}>Close modal</Button>
-            <Button type="link-cancel" onClick={this.toggleModal}>Also closes modal</Button>
-          </ModalFooter>
         </Modal>
       </span>
 		);

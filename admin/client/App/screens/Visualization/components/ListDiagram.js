@@ -1,6 +1,6 @@
 import React from 'react';
 import ListModal from './ListModal';
-import { Glyph, Row, Card } from 'elemental';
+import { Row, Card } from 'elemental';
 
 const ListDiagram = ({ list }) => (
     <div className="list-diagram">
@@ -12,7 +12,7 @@ const ListDiagram = ({ list }) => (
       <Row>
         {Object.values(list.fields).map(field =>
           <Card>
-            <ListModal label={field.label} />
+            <ListModal label={field.label} keys={Object.keys(field)} values={Object.values(field)} />
           </Card>
           )}
       </Row>
